@@ -1,4 +1,4 @@
-Interceptor.attach (Module.findExportByName ("libc.so", "strncmp"), {
+Interceptor.attach (Module.findExportByName("libc.so", "strncmp"), {
 onEnter: function (args) {
 	var param1 = Memory.readUtf8String(args[0]);
 	var param2 = Memory.readUtf8String(args[1]);

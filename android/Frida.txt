@@ -1,0 +1,8 @@
+VER=`frida --version`
+ABI=`adb shell getprop ro.product.cpu.abi`
+wget https://github.com/frida/frida/releases/download/$VER/frida-server-$VERandroid-$ABI.xz
+xz -d frida-server-$VER-android-$ABI.xz
+
+adb push frida-server-$VER-android-$ABI.xz /data/local/tmp/frida-server
+adb shell "chmod 755 /data/local/tmp/frida-server"
+adb shell "/data/local/tmp/frida-server"

